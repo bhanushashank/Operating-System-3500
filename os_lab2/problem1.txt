@@ -1,0 +1,17 @@
+                                                                                      PROBLEM - 1
+   
+INPUT :- one argument as string 
+OUTPUT :- printing the argument using system call (echo_simple)
+ 
+Explanation :-
+
+1) Create a new system call named echo_simple which takes string as the argument.
+
+2) value is stored in register and calls ECALL instruction which switches from user mode to kernel mode.
+
+3) echo_simple is invoked by sys_call function.
+
+4) echo_simple takes argument from register with help (argint)function.
+
+5) print the string via stdout in kernel mode.
+

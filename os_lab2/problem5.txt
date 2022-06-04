@@ -1,0 +1,20 @@
+                                                                                      PROBLEM - 5
+   
+OUTPUT :- print the process id,process name and memory size of process (In Bytes)  
+ 
+Explanation :-
+
+1) Create a new system call named get_process_info which takes struct pointer as the argument to store data of the process.
+
+2) value is stored in register and calls ECALL instruction which switches from user mode to kernel mode.
+
+3) Since we are taking pointer for new data type we need to include it in necessary files like sysproc.c,test_problem_5.c ..
+
+4) Since required data is present in struct proc for the process, we will store in our new data type(processinfo). 
+
+5) get_process_info system call is invoked by sys_call function.
+
+6) Takes the pointer as argument and stores the process data in pointer.
+
+7) prints the data of process from user mode where data is brought from kernel mode with help of system call(get_process_info).
+

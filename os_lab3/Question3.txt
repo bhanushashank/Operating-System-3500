@@ -1,0 +1,24 @@
+                                                                        PROBLEM - 3
+                                                                        
+   Explanation :-
+   
+ 1)Modify the code in trap.c to respond to a page fault from user space by mapping a newly-allocated page of physical memory at the faulting address, and then returning back to user space to let the process continue executing.
+ 
+ 2)In case of a page fault, r_scause() is 13 or 15 in usertrap()
+ 
+ 3)r_stval() gives the virtual address that caused the page fault. Allocate new page using kalloc()
+ 
+ 4)Map the newly allocated page at the faulting address va using mappages().
+ 
+ 5)The following code should be added just before the printf call that produced the ”usertrap() : ...” message so that when echo hi is called, it should be able to allocate new page.
+ 
+ 6)uvmunmap should be modified to not panic when some pages aren’t mapped. The definition (function body) of uvmunmap in vm.c can be replaced with the following snippet to achieve the same.
+ 
+ 7)Result: echo hi works correctly and no longer shows a page fault.
+ 
+ 
+ Comments:- 
+ 
+ 	Before running the third code,comment the sys_sbrk function w.r.to second file and  add code in function usertrap() present in kernel/trap.c file.
+ 
+  

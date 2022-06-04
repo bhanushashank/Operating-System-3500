@@ -1,0 +1,24 @@
+                                                                                      PROBLEM - 3
+   
+OUTPUT :- Function for tracing  the system calls(using trace system call)
+ 
+Explanation :-
+
+1) Create a new system call named trace which takes mask as the argument.
+
+2) Mask contains bits specifies which system calls to be traced. If ith bit is set then system call associated with i number needs to be traced.
+
+3) value is stored in register and calls ECALL instruction which switches from user mode to kernel mode.
+
+3) Modified the structure of proc by adding additional integer which stores mask for trace system call specificly.
+
+4) syscall function invokes trace system call.
+
+5) Trace function takes argument with (argint)function which takes value from register and stores the value in struct created for the process.
+
+6) If number associated with system call is x and if xth bit is set in mask then prints the id of process, system call name and return value of function.
+
+7) else process the remaining commands.
+
+8) Since syscall function is invoked for every system call,syscall function checks the above condition everytime and prints when condition is satisified.
+

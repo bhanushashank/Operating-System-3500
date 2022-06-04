@@ -1,0 +1,17 @@
+                                                                                      PROBLEM - 2
+   
+INPUT :- takes one or more arguments as string 
+OUTPUT :- prints the arguments using system call (echo_kernel) from kernel mode.
+ 
+Explanation :-
+
+1) Create a new system call named echo_kernel which takes (number of strings present and array of strings) as the arguments.
+
+2) values are stored in register and calls ECALL instruction which switches from user mode to kernel mode.
+
+3) echo_kernel is invoked by sys_call function.
+
+4) echo_kernel takes starting address of strings array with help of (fetchaddr)function and number of strings with (argint)function .
+
+5) prints the array of strings from kernel mode.
+

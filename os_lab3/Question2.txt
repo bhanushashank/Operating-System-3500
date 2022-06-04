@@ -1,0 +1,18 @@
+                                                                        PROBLEM - 2
+ 
+Explanation :-
+
+1)Deleted page allocation from the system call(sys_sbrk) implementation, which is present at location kernel/sysproc.c.
+
+2)The sbrk(n) system call grows the process’s memory size by n bytes, and then returns the start of the newly allocated region (i.e., the old size).
+
+3)We have deleted the memory allocation but increased the process size.
+
+4)Inserted the function in uvmunmap function present in kernel/vm.c.
+
+5) To make this modification, growproc() should not be called when n >= 0. Instead, only myproc->size += n should be done, and old size should be returned. When n < 0, i.e. for deallocation, 
+
+   growproc should be used as usual.
+
+6) Added print function for printing virtual address and pte in function uvmunmap.
+

@@ -1,0 +1,27 @@
+                                                                        PROBLEM - 1
+   
+OUTPUT :- printing Valid entries in page Table
+ 
+Explanation :-
+
+1)Define the function(void vmprint(pagetable_t)) in kernel/vm.c.
+
+2)Inserted the function prototype in defs.h (vmprint).
+
+3)Inserted a call to vmprint in exec.c to print the page table for the first user process.
+
+4)If it is first user process then function is invoked and valid entries are printed.
+
+5)The first line prints the address of the argument of vmprint.
+
+6)Each PTE line shows the PTE index in its page directory, the pte, the physical address for the PTE.
+
+7)The output is printed in format indicating the level of the page directory as the top-level entries are preceeded by ”..”,the next level down with another ”..”, and so on.
+
+8)The first user process has pid equal to one. The following snippet can be inserted in exec.c just before returning from the exec function to print the page table contents corresponding to the first user process.
+				if(p->pid == 1){
+					vmprint(p->pagetable);
+				}
+				
+9)Go through every page table entry (there are 512 PTEs in a page table), Print details of lower-level page table entries (if exists) by iterating through the 512 PTEs of the child page table.
+
